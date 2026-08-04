@@ -1,0 +1,12 @@
+# FastAPI AI Service Requirements
+fastapi
+uvicorn
+PyMuPDF
+sentence-transformers
+faiss-cpu
+google-genai
+google-generativeai
+python-dotenv
+numpy
+pandas
+pydantic

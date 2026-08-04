@@ -1,0 +1,69 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ========================
+# Environment Variables
+# ========================
+.env
+*.env
+
+# ========================
+# Node
+# ========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================
+# Vite
+# ========================
+dist/
+
+# ========================
+# VS Code
+# ========================
+.vscode/
+
+# ========================
+# OS
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# AI Generated Files
+# ========================
+ai_service/vector_stores/
+backend/uploads/
+data/
+
+# Keep empty folders
+!backend/uploads/.gitkeep
+!ai_service/vector_stores/.gitkeep
+
+# ========================
+# Logs
+# ========================
+*.log
+
+# ========================
+# Python Cache
+# ========================
+.pytest_cache/
+.mypy_cache/
+
+# ========================
+# FAISS Indexes
+# ========================
+*.index
+*.pkl
