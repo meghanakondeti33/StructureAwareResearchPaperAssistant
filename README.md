@@ -16,7 +16,7 @@
 
 <!-- Add your demo GIF/video here -->
 
-![Demo](docs/demo.gif)
+![Demo](docs/demo.mp4)
 
 ---
 
