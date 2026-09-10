@@ -202,7 +202,7 @@ StructureAwareResearchPaperAssistant/
 ### 1. Clone
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/StructureAwareResearchPaperAssistant.git
+git clone https://github.com/meghanakondeti33/StructureAwareResearchPaperAssistant.git
 cd StructureAwareResearchPaperAssistant
 ```
 
@@ -297,13 +297,7 @@ What is the conclusion of this paper?
 
 ---
 
-## 📖 Documentation
 
-For detailed architecture, API design, RAG pipeline, database models, and implementation details, see:
-
-**`TECHNICAL_DOCUMENTATION.md`**
-
----
 
 ## 👩‍💻 Author
 
