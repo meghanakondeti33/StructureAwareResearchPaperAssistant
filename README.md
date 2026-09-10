@@ -14,9 +14,9 @@
 
 ## 🎥 Demo
 
-<!-- Add your demo GIF/video here -->
+[![Watch Demo](docs/screenshots/dashboard.png)](docs/demo.mp4)
 
-![Demo](docs/demo.mp4)
+> ▶️ Click the preview to watch the full project demo.
 
 ---
 
