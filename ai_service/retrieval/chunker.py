@@ -1,10 +1,11 @@
 """
 chunker.py
 
-Creates section-aware chunks.
+Creates structure-aware chunks while preserving
+section and page metadata.
 
 Author: Meghana
-Project: Structure-Aware Multimodal Research Paper Assistant
+Project: Structure-Aware Research Paper Assistant
 """
 
 from typing import List, Dict
@@ -12,12 +13,33 @@ from typing import List, Dict
 
 class SectionChunker:
 
-    def __init__(self,
-                 chunk_size: int = 800,
-                 overlap: int = 100):
+    def __init__(
+        self,
+        chunk_size: int = 800,
+        overlap: int = 100
+    ):
+
+        if chunk_size <= 0:
+            raise ValueError(
+                "chunk_size must be greater than 0."
+            )
+
+        if overlap < 0:
+            raise ValueError(
+                "overlap cannot be negative."
+            )
+
+        if overlap >= chunk_size:
+            raise ValueError(
+                "overlap must be smaller than chunk_size."
+            )
 
         self.chunk_size = chunk_size
         self.overlap = overlap
+
+    # =========================================================
+    # Chunk Sections
+    # =========================================================
 
     def chunk_sections(
         self,
@@ -26,13 +48,33 @@ class SectionChunker:
 
         chunks = []
 
+        step = (
+            self.chunk_size
+            - self.overlap
+        )
+
         for section in sections:
 
-            text = section["content"]
+            text = str(
+                section.get(
+                    "content",
+                    ""
+                )
+            ).strip()
 
-            title = section["title"]
+            title = section.get(
+                "title",
+                "Unknown Section"
+            )
 
-            page = section["page"]
+            page = section.get(
+                "page",
+                0
+            )
+
+            # Skip empty sections
+            if not text:
+                continue
 
             start = 0
 
@@ -40,18 +82,20 @@ class SectionChunker:
 
                 end = start + self.chunk_size
 
-                chunk_text = text[start:end]
+                chunk_text = text[
+                    start:end
+                ].strip()
 
-                chunks.append({
+                if chunk_text:
 
-                    "title": title,
+                    chunks.append(
+                        {
+                            "title": title,
+                            "page": page,
+                            "content": chunk_text
+                        }
+                    )
 
-                    "page": page,
-
-                    "content": chunk_text
-
-                })
-
-                start += self.chunk_size - self.overlap
+                start += step
 
         return chunks
